@@ -18,10 +18,10 @@ export const navlinks: INavlinks[] = [
   },
   {
     href: "/contact",
-    label: "Contacts",
+    label: "Contact",
   },
-  {
-    href: "/temp",
-    label: "Temp",
-  },
+  // {
+  //   href: "/temp",
+  //   label: "Temp",
+  // },
 ];
