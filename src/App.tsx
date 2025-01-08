@@ -16,6 +16,7 @@ import ProjectPage from "./pages/ProjectPage";
 import SinglePostPage from "./pages/SinglePostPage";
 
 import "./index.css";
+import ContactPage from "./pages/ContactPage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -27,7 +28,7 @@ const App = () => {
         {/* <Route path="/project/:id" element={<SingleProjectPage />} /> */}
         <Route path="/post" element={<PostPage />} />
         <Route path="post/:slug" element={<SinglePostPage />} />
-        <Route path="/contact" element={<h1>Contact</h1>} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/temp" element={<TempPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
