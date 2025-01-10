@@ -18,7 +18,7 @@ const WebToolsSection = () => {
     >
       <Container>
         <motion.h2 variants={textAnimation} className="mb-6 md:mb-10">
-          Using technology
+          Use technology
         </motion.h2>
         <ul className="max-w-xl mx-auto flex flex-wrap justify-center gap-2 md:gap-4">
           {webTools &&
@@ -27,7 +27,7 @@ const WebToolsSection = () => {
                 key={item.id}
                 variants={listAnimation}
                 custom={index + 2}
-                className="px-4 py-2 text-center"
+                className="p-2 flex flex-col items-center"
               >
                 <div className="group flex items-center justify-center size-20 md:size-24 rounded bg-accent-gray transition-colors">
                   {
@@ -38,7 +38,7 @@ const WebToolsSection = () => {
                     />
                   }
                 </div>
-                <p className="text-sm font-semibold">{item.title}</p>
+                <p className="text-sm font-semibold mt-2">{item.title}</p>
               </motion.li>
             ))}
         </ul>

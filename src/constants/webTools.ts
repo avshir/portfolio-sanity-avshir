@@ -65,15 +65,15 @@ export const webTools: IWebTool[] = [
   },
   {
     id: 8,
-    title: "Framer motion",
-    icon: TbBrandFramerMotion,
-    color: "black",
-  },
-  {
-    id: 9,
     title: "Git",
     icon: FaGitAlt,
     color: "#f64d27",
+  },
+  {
+    id: 9,
+    title: "Framer motion",
+    icon: TbBrandFramerMotion,
+    color: "black",
   },
   {
     id: 10,
