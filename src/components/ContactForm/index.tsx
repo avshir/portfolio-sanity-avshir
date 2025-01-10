@@ -1,14 +1,13 @@
 //docs.web3forms.com/how-to-guides/js-frameworks/react-js/react-js
 import { useEffect, useState } from "react";
 import { useForm, useWatch, SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
 
 import Button from "./../Button";
-import { LoaderIcon } from "./../../constants/icons"
-import { Snackbar } from "../Snackbar";
-import { EMAIL_ACCESS_KEY } from "../../constants/email_key";
+import { LoaderIcon } from "./../../constants/icons";
 
-export const NAME_WEBSITE = "portfolio-avshir.pl";
-export const NAME_THEME = "portfolio-avshir";
+import { NAME_EMAIL_FROM, NAME_WEBSITE } from "../../constants/index";
+import { EMAIL_ACCESS_KEY } from "../../constants/email_key";
 
 interface IFormValues {
   access_key: string;
@@ -32,7 +31,7 @@ export const ContactForm = () => {
     mode: "onTouched",
   });
   const [isSuccess, setIsSuccess] = useState(false);
-  const [Message, setMessage] = useState("");
+  const [jsonMessage, setJsonMessage] = useState("");
 
   const userName = useWatch({
     control,
@@ -45,7 +44,6 @@ export const ContactForm = () => {
   }, [userName, setValue]);
 
   const onSubmit: SubmitHandler<IFormValues> = async (data, e) => {
-    console.log(data);
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -55,20 +53,22 @@ export const ContactForm = () => {
         },
         body: JSON.stringify(data, null, 2),
       });
-
       const json = await response.json();
+
       if (json.success) {
         setIsSuccess(true);
-        setMessage(json.message);
+        setJsonMessage(json.message);
         e?.target.reset();
         reset();
       } else {
         setIsSuccess(false);
-        setMessage(json.message);
+        setJsonMessage(json.message);
       }
     } catch (error) {
       setIsSuccess(false);
-      setMessage("Client Error. Please check the console.log for more info");
+      setJsonMessage(
+        "Client Error. Please check the console.log for more info"
+      );
       console.log(error);
     }
   };
@@ -78,7 +78,7 @@ export const ContactForm = () => {
       {!isSubmitSuccessful && (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
+          className="flex flex-col space-y-6"
         >
           <input
             type="hidden"
@@ -88,7 +88,7 @@ export const ContactForm = () => {
           <input type="hidden" {...register("subject")} />
           <input
             type="hidden"
-            value={`From ${NAME_THEME}`}
+            value={`From ${NAME_EMAIL_FROM}`}
             {...register("from_name")}
           />
           <input
@@ -189,46 +189,57 @@ export const ContactForm = () => {
             <div className="text-sm">* required fields</div>
           </div>
 
-          <Button size="lg" type="submit" color="accent" className="w-full">
-            {isSubmitting ? (
-              <LoaderIcon className="size-5 mx-auto animate-spin" />
-            ) : (
-              "Send"
-            )}
-          </Button>
-        </form>
-      )}
-      {isSubmitSuccessful && isSuccess && (
-        <div className="flex items-center justify-center">
-          <Snackbar title="Successful" text="Message successfully sent!">
+          <div className="flex justify-between">
             <Button
               size="md"
+              type="submit"
               color="accent"
-              className="mt-4 self-start rounded"
-              onClick={() => reset()}
+              className="min-w-[140px]"
             >
-              Go back
+              {isSubmitting ? (
+                <LoaderIcon className="size-5 mx-auto animate-spin" />
+              ) : (
+                "Send"
+              )}
             </Button>
-          </Snackbar>
+            <Button type="reset" size="md" color="outlineNo">
+              {isSubmitting ? null : "Clear form"}
+            </Button>
+          </div>
+        </form>
+      )}
+
+      {isSubmitSuccessful && isSuccess && (
+        <div className="flex items-center justify-center">
+          <Button
+            size="md"
+            color="accent"
+            className="mt-4 self-start min-w-[140px]"
+            onClick={() => reset()}
+          >
+            Go back
+          </Button>
+          {toast.success(jsonMessage, { position: "top-center" })}
         </div>
       )}
 
       {isSubmitSuccessful && !isSuccess && (
         <div className="flex items-center justify-center">
-          <Snackbar
-            title="Oops, Something went wrong!"
-            text={Message}
-            isError={!isSuccess}
+          <Button
+            size="md"
+            color="accent"
+            className="mt-4 self-start min-w-[140px]"
+            onClick={() => reset()}
           >
-            <Button
-              size="md"
-              color="accent"
-              className="mt-4 self-start rounded-xl"
-              onClick={() => reset()}
-            >
-              Try Again
-            </Button>
-          </Snackbar>
+            Try Again
+          </Button>
+          {toast.error(
+            <div>
+              <div>Oops, Something went wrong!</div>
+              <div>{jsonMessage}</div>
+            </div>,
+            { position: "top-center" }
+          )}
         </div>
       )}
     </>
