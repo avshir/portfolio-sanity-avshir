@@ -78,7 +78,7 @@ export const ContactForm = () => {
       {!isSubmitSuccessful && (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-6"
+          className="flex flex-col space-y-6 max-w-md"
         >
           <input
             type="hidden"
