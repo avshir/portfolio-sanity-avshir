@@ -4,6 +4,7 @@ import { Container } from "../components/Container";
 import AnimatedLettersComponent from "../components/Animated/AnimatedLettersComponent";
 import AnimatedLettersMotion from "../components/Animated/AnimatedLettersMotion";
 import CubespinnerAnimation from "../components/Animated/CubespinnerAnimation";
+import Button from "../components/Button";
 
 const TempPage = () => {
   const animatedText1 = "Web Developer";
@@ -41,6 +42,26 @@ const TempPage = () => {
       <section>
         <Container className="text-6xl font-bold text-primary text-center my-10">
           <AnimatedLettersMotion animatedText={animatedText2} />
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <h2>Buttons</h2>
+          <div className="space-x-2 my-2">
+            <Button size={"md"}>defalt md black</Button>
+            <Button size={"lg"}>defalt lg primary</Button>
+            <Button size={"xl"}>defalt xl primary</Button>
+
+            <Button color="black">md black</Button>
+            <Button color="accent">md accent</Button>
+            <Button color="primary">md primary</Button>
+            <Button color="outlineNo">md outlineNo</Button>
+            <Button color="outlineDark">md outlineDark</Button>
+          </div>
+          <div className="space-x-2 bg-black h-20 p-4">
+            <Button color="outlineLight">md outlineLight</Button>
+            <Button color="outlineAccent">md outlineAccent</Button>
+          </div>
         </Container>
       </section>
     </ContainerMain>
