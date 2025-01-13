@@ -1,7 +1,7 @@
 import { Container } from "../components/Container";
 import { ContainerMain } from "../components/ContainerMain";
 
-import { secret_forest_JPG } from "../constants/images";
+import { secret_forest_JPG } from "../constants/my_images";
 
 interface IAuthor {
   name: string;

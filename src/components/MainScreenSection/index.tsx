@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Container } from "../Container";
 import Button from "./../Button";
 
-import { laptop_code_JPG } from "../../constants/images";
+import { laptop_code_JPG } from "../../constants/my_images";
 import { FiDownload } from "react-icons/fi";
 
 import CubespinnerAnimation from "../Animated/CubespinnerAnimation/index";
