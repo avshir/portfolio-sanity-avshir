@@ -10,7 +10,7 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: colors.neutral[700],
+          DEFAULT: colors.neutral[600],
         },
         // secondary: { ...colors.blue, DEFAULT: colors.blue[300] },
         transparent: "transparent",

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @tailwind base;
@@ -12,13 +11,6 @@
   font-weight: 500;
   font-style: normal;
 }
-
-.cursive {
-  font-family: "Amatic SC", cursive, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -34,19 +26,15 @@
   background: #e5e5e5;
   border-width: 2px;
   border-style: solid;
-  border-color: #959A9E;
+  border-color: #959a9e;
   border-radius: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #959A9E;
+  background: #959a9e;
 }
 
 @layer base {
-  /* body {
-    font-family: "Inter", sans-serif;
-  } */
-
   h1 {
     @apply text-3xl font-bold text-center sm:text-4xl;
   }
@@ -68,28 +56,7 @@
   }
 }
 
-@layer components {
-  /* .h2-text-span {
-    padding: 0 0 8px 0;
-    background-image: url("./assets/svg/purple-underline.svg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    display: inline;
-    background-position: left calc(100% + 1rem);
-  }
-  .golubika-image-png {
-    background-image: url("./assets/images/png/golubika_2_256.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  } */
-}
-
 .prose img {
   margin: 0 auto;
   border-radius: 5px;
-}
-
-.home-name {
-  font-size: 150px;
 }
