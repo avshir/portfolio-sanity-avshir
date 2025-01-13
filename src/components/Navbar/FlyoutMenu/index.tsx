@@ -42,8 +42,8 @@ const FlyoutMenu = () => {
         {/* Desktop menu */}
         <ul className="hidden items-center lg:flex lg:gap-x-8">
           {navlinks.map((item) => (
-            <li>
-              <NavLink key={item.label} to={item.href} className={linkClass}>
+            <li key={item.label}>
+              <NavLink to={item.href} className={linkClass}>
                 {item.label}
               </NavLink>
             </li>
