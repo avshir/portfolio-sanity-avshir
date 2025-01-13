@@ -44,7 +44,7 @@ const MainScreenSection = () => {
                 </Button>
               </Link>
               <a
-                href="CV_Frontend_Developer_Anna_Shirinskaya_12.2024.pdf"
+                href="/CV_Frontend_Developer_Anna_Shirinskaya_12.2024.pdf"
                 download="CV_Frontend_Developer_Anna_Shirinskaya.pdf"
               >
                 <Button
