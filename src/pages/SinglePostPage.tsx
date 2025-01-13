@@ -45,7 +45,9 @@ const SinglePostPage = () => {
       }`
       )
       .then((data) => setSinglePost(data[0]))
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      });
   }, [slug]);
 
   if (!singlePost) return <div>Loading ...</div>;

@@ -19,7 +19,9 @@ const ProjectPage = () => {
       }`
       )
       .then((data) => setProjectData(data))
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
@@ -39,7 +41,6 @@ const ProjectPage = () => {
                 <h3 className="font-bold mb-2 hover:text-accent">
                   <a
                     href={project.link}
-                    alt={project.title}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

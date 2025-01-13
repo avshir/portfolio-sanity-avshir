@@ -26,7 +26,7 @@ const PostPage = () => {
       )
       .then((data) => setPost(data))
       .catch((err) => {
-        console.error();
+        console.error(err);
       });
   }, []);
 

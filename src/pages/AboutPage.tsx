@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Container } from "../components/Container";
 import { ContainerMain } from "../components/ContainerMain";
 
@@ -11,16 +9,16 @@ interface IAuthor {
   bio: string;
 }
 
-const authorData: IAuthor = {
+const author: IAuthor = {
   name: "Anna",
   authorImage: "xxx",
   bio: "I'm a frontend developer! (●'◡'●). I like JavaScript and React ❤️!",
 };
 
 const AboutPage = () => {
-  const [author, setAuthor] = useState(authorData);
+  // const [author, setAuthor] = useState(authorData);
 
-  if (!author) return <div>Loading ...</div>;
+  // if (!author) return <div>Loading ...</div>;
 
   return (
     <ContainerMain className="relative overflow-hidden py-0 sm:py-0 lg:py-0">
